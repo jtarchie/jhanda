@@ -20,9 +20,10 @@ var _ = Describe("Parse", func() {
 	})
 
 	Context("embedded structs fields", func() {
-		It("parses the fields", func() {
+		FIt("parses the fields", func() {
 			type second struct {
 				Second bool `short:"2"`
+				itIgnoresPrivateFields interface{}
 			}
 			var set struct {
 				First bool `short:"1"`

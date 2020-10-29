@@ -61,6 +61,10 @@ func parseFields(t reflect.Type, set *flag.FlagSet, v reflect.Value) ([]*parser.
 
 	for i := 0; i < t.NumField(); i++ {
 		field := t.Field(i)
+		if field.PkgPath != "" && !field.Anonymous{
+			continue
+		}
+
 		var (
 			f   *parser.Flag
 			err error
